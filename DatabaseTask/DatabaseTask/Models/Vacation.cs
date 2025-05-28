@@ -1,18 +1,20 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DatabaseTask.Models
 {
     public class Vacation
     {
         [Key]
-        public int Vacation_ID { get; set; }
+        public int VacationId { get; set; }
 
-        public int Employee_ID { get; set; }
+        [ForeignKey("Employee")]
+        public int EmployeeId { get; set; }
 
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
 
-        public int Extra_Child_Day_Vacation { get; set; }
+        public int ExtraChildDayVacation { get; set; }
 
         public string? Description { get; set; }
 

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DatabaseTask.Models
 {
@@ -6,9 +7,10 @@ namespace DatabaseTask.Models
     {
         [Key]
 
-        public int Health_Check_ID { get; set; }
+        public int HealthCheckId { get; set; }
 
-        public int Employee_ID { get; set; }
+        [ForeignKey("Employee")]
+        public int EmployeeId { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
 

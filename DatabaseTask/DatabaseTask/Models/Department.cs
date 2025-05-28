@@ -5,7 +5,7 @@ namespace DatabaseTask.Models
     public class Department
     {
         [Key]
-        public int Department_ID { get; set; }
+        public int DepartmentId { get; set; }
 
         [MaxLength(100)]
         public string Department_Name { get; set; }

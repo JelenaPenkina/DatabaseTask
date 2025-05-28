@@ -5,9 +5,9 @@ namespace DatabaseTask.Models
     public class Child
     {
         [Key]
-        public int Child_ID { get; set; }
+        public int ChildId { get; set; }
 
-        public int Employee_ID { get; set; }
+        public int EmployeeId { get; set; }
 
         [MaxLength(50)]
         public string FirstName { get; set; }

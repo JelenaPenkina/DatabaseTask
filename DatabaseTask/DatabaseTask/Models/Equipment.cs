@@ -5,7 +5,7 @@ namespace DatabaseTask.Models
     public class Equipment
     {
         [Key]
-        public int Equipment_ID { get; set; }
+        public int EquipmentId { get; set; }
 
         [MaxLength(100)]
         public string Name { get; set; }

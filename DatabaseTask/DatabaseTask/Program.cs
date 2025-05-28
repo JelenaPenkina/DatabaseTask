@@ -11,7 +11,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<DatabaseTaskDbContext>(options => options.UseSqlServer(builder.Configuration.GetSection("ConnectionStrings:DbConn").Value));
+builder.Services.AddDbContext<DatabaseTaskDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 //void ConfigureServices(IServiceCollection services)
 //{

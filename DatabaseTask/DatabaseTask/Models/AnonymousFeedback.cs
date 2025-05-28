@@ -6,7 +6,7 @@ namespace DatabaseTask.Models
     {
 
         [Key]
-        public int Feedback_ID { get; set; }
+        public int FeedbackId { get; set; }
 
         public string Text { get; set; }
         public DateTime SubmittedDate { get; set; }
