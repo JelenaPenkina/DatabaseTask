@@ -15,14 +15,14 @@ namespace DatabaseTask.Migrations
                 name: "Department",
                 columns: table => new
                 {
-                    Department_ID = table.Column<int>(type: "int", nullable: false)
+                    DepartmentId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Department_Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Department", x => x.Department_ID);
+                    table.PrimaryKey("PK_Department", x => x.DepartmentId);
                 });
 
             migrationBuilder.CreateTable(
@@ -61,7 +61,7 @@ namespace DatabaseTask.Migrations
                         name: "FK_Employees_Department_DepartmentId",
                         column: x => x.DepartmentId,
                         principalTable: "Department",
-                        principalColumn: "Department_ID",
+                        principalColumn: "DepartmentId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Employees_JobTitle_JobTitleId",
@@ -75,17 +75,16 @@ namespace DatabaseTask.Migrations
                 name: "Child",
                 columns: table => new
                 {
-                    Child_ID = table.Column<int>(type: "int", nullable: false)
+                    ChildId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Employee_ID = table.Column<int>(type: "int", nullable: false),
+                    EmployeeId = table.Column<int>(type: "int", nullable: false),
                     FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Birthdate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    EmployeeId = table.Column<int>(type: "int", nullable: false)
+                    Birthdate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Child", x => x.Child_ID);
+                    table.PrimaryKey("PK_Child", x => x.ChildId);
                     table.ForeignKey(
                         name: "FK_Child_Employees_EmployeeId",
                         column: x => x.EmployeeId,
@@ -98,15 +97,14 @@ namespace DatabaseTask.Migrations
                 name: "EmployeeAccess",
                 columns: table => new
                 {
-                    Employee_Access_ID = table.Column<int>(type: "int", nullable: false)
+                    EmployeeAccessId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Employee_ID = table.Column<int>(type: "int", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    EmployeeId = table.Column<int>(type: "int", nullable: false)
+                    EmployeeId = table.Column<int>(type: "int", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_EmployeeAccess", x => x.Employee_Access_ID);
+                    table.PrimaryKey("PK_EmployeeAccess", x => x.EmployeeAccessId);
                     table.ForeignKey(
                         name: "FK_EmployeeAccess_Employees_EmployeeId",
                         column: x => x.EmployeeId,
@@ -119,17 +117,16 @@ namespace DatabaseTask.Migrations
                 name: "HealthCheck",
                 columns: table => new
                 {
-                    Health_Check_ID = table.Column<int>(type: "int", nullable: false)
+                    HealthCheckId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Employee_ID = table.Column<int>(type: "int", nullable: false),
+                    EmployeeId = table.Column<int>(type: "int", nullable: false),
                     StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EndDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    EmployeeId = table.Column<int>(type: "int", nullable: false)
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_HealthCheck", x => x.Health_Check_ID);
+                    table.PrimaryKey("PK_HealthCheck", x => x.HealthCheckId);
                     table.ForeignKey(
                         name: "FK_HealthCheck_Employees_EmployeeId",
                         column: x => x.EmployeeId,
@@ -163,18 +160,17 @@ namespace DatabaseTask.Migrations
                 name: "SickLeave",
                 columns: table => new
                 {
-                    Sick_leave_ID = table.Column<int>(type: "int", nullable: false)
+                    SickLeaveId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Employee_ID = table.Column<int>(type: "int", nullable: false),
+                    EmployeeId = table.Column<int>(type: "int", nullable: false),
                     StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EndDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Reason = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    EmployeeId = table.Column<int>(type: "int", nullable: false)
+                    Reason = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SickLeave", x => x.Sick_leave_ID);
+                    table.PrimaryKey("PK_SickLeave", x => x.SickLeaveId);
                     table.ForeignKey(
                         name: "FK_SickLeave_Employees_EmployeeId",
                         column: x => x.EmployeeId,
@@ -187,18 +183,17 @@ namespace DatabaseTask.Migrations
                 name: "Vacation",
                 columns: table => new
                 {
-                    Vacation_ID = table.Column<int>(type: "int", nullable: false)
+                    VacationId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Employee_ID = table.Column<int>(type: "int", nullable: false),
+                    EmployeeId = table.Column<int>(type: "int", nullable: false),
                     StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EndDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Extra_Child_Day_Vacation = table.Column<int>(type: "int", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    EmployeeId = table.Column<int>(type: "int", nullable: false)
+                    ExtraChildDayVacation = table.Column<int>(type: "int", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Vacation", x => x.Vacation_ID);
+                    table.PrimaryKey("PK_Vacation", x => x.VacationId);
                     table.ForeignKey(
                         name: "FK_Vacation_Employees_EmployeeId",
                         column: x => x.EmployeeId,

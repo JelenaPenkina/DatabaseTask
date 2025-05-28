@@ -24,19 +24,16 @@ namespace DatabaseTask.Migrations
 
             modelBuilder.Entity("DatabaseTask.Models.Child", b =>
                 {
-                    b.Property<int>("Child_ID")
+                    b.Property<int>("ChildId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Child_ID"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ChildId"));
 
                     b.Property<DateTime>("Birthdate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("EmployeeId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Employee_ID")
                         .HasColumnType("int");
 
                     b.Property<string>("FirstName")
@@ -49,7 +46,7 @@ namespace DatabaseTask.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.HasKey("Child_ID");
+                    b.HasKey("ChildId");
 
                     b.HasIndex("EmployeeId");
 
@@ -58,11 +55,11 @@ namespace DatabaseTask.Migrations
 
             modelBuilder.Entity("DatabaseTask.Models.Department", b =>
                 {
-                    b.Property<int>("Department_ID")
+                    b.Property<int>("DepartmentId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Department_ID"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DepartmentId"));
 
                     b.Property<string>("Department_Name")
                         .IsRequired()
@@ -73,7 +70,7 @@ namespace DatabaseTask.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Department_ID");
+                    b.HasKey("DepartmentId");
 
                     b.ToTable("Department");
                 });
@@ -131,11 +128,11 @@ namespace DatabaseTask.Migrations
 
             modelBuilder.Entity("DatabaseTask.Models.EmployeeAccess", b =>
                 {
-                    b.Property<int>("Employee_Access_ID")
+                    b.Property<int>("EmployeeAccessId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Employee_Access_ID"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EmployeeAccessId"));
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -143,10 +140,7 @@ namespace DatabaseTask.Migrations
                     b.Property<int>("EmployeeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Employee_ID")
-                        .HasColumnType("int");
-
-                    b.HasKey("Employee_Access_ID");
+                    b.HasKey("EmployeeAccessId");
 
                     b.HasIndex("EmployeeId");
 
@@ -155,19 +149,16 @@ namespace DatabaseTask.Migrations
 
             modelBuilder.Entity("DatabaseTask.Models.HealthCheck", b =>
                 {
-                    b.Property<int>("Health_Check_ID")
+                    b.Property<int>("HealthCheckId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Health_Check_ID"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("HealthCheckId"));
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("EmployeeId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Employee_ID")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("EndDate")
@@ -176,7 +167,7 @@ namespace DatabaseTask.Migrations
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("Health_Check_ID");
+                    b.HasKey("HealthCheckId");
 
                     b.HasIndex("EmployeeId");
 
@@ -231,31 +222,30 @@ namespace DatabaseTask.Migrations
 
             modelBuilder.Entity("DatabaseTask.Models.SickLeave", b =>
                 {
-                    b.Property<int>("Sick_leave_ID")
+                    b.Property<int>("SickLeaveId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Sick_leave_ID"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SickLeaveId"));
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("EmployeeId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Employee_ID")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Reason")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("Sick_leave_ID");
+                    b.HasKey("SickLeaveId");
 
                     b.HasIndex("EmployeeId");
 
@@ -264,11 +254,11 @@ namespace DatabaseTask.Migrations
 
             modelBuilder.Entity("DatabaseTask.Models.Vacation", b =>
                 {
-                    b.Property<int>("Vacation_ID")
+                    b.Property<int>("VacationId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Vacation_ID"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VacationId"));
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -276,19 +266,16 @@ namespace DatabaseTask.Migrations
                     b.Property<int>("EmployeeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Employee_ID")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Extra_Child_Day_Vacation")
+                    b.Property<int>("ExtraChildDayVacation")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("Vacation_ID");
+                    b.HasKey("VacationId");
 
                     b.HasIndex("EmployeeId");
 
